@@ -14,7 +14,20 @@ const Login = () => {
     const username = useInputValidation("",usernameValidator)
     const password = useStrongPassword()
     const avatar = useFileHandler("single")
-  return (<Container component={"main"} maxWidth="xs" sx={{
+    const handleLogin = (e) => {
+        e.preventDefault();
+    };
+    const handleSignUp = (e) => {
+        e.preventDefault();
+    };
+  return (
+    <div 
+    style={{
+        backgroundImage:
+        "linear-gradient(rgba(200,200,200,0.5),rgba(120,110,220,0.5))",
+    }}
+    >
+  <Container component={"main"} maxWidth="xs" sx={{
     height: '100vh',
     display: 'flex',
     justifyContent: 'center',
@@ -35,7 +48,9 @@ const Login = () => {
         <form style={{
             width: '100%',
             marginTop: '1rem',
-        }}>
+        }}
+        onSubmit={handleLogin}
+        >
             <TextField
             required
             fullWidth
@@ -84,7 +99,9 @@ const Login = () => {
         <form style={{
             width: '100%',
             marginTop: '1rem',
-        }}>
+        }}
+        onSubmit={handleSignUp}
+        >
             <Stack postion={"relative"} width={"7rem"} margin={"auto"}>
                 <Avatar sx={{
                     width: 100,
@@ -202,6 +219,7 @@ const Login = () => {
     )}
     </Paper>
   </Container>
+  </div>
   );
 };
 
