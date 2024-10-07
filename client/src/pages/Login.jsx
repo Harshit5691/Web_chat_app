@@ -102,7 +102,7 @@ const Login = () => {
         }}
         onSubmit={handleSignUp}
         >
-            <Stack postion={"relative"} width={"7rem"} margin={"auto"}>
+            <Stack postion={"relative"} width={"6.3rem"} margin={"auto"}>
                 <Avatar sx={{
                     width: 100,
                     height: 100,
