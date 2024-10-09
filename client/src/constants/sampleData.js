@@ -44,12 +44,7 @@ export const sampleNotifications = [
 ];
 export const sampleMessages = [
     {
-        attachments:[
-            {
-                public_id:"asdsad",
-                url:"https://www.w3schools.com/howto/img_avatar.png",
-            }
-        ],
+        attachments:[],
         content:"Hey from Mughal Ketan Goud",
         _id:"sfnsdjkfsdnfkjsbnd",
         sender:{
@@ -66,8 +61,8 @@ export const sampleMessages = [
                 url:"https://www.w3schools.com/howto/img_avatar.png",
             }
         ],
-        content:"Hey from Mudhi Mudhi Raj",
-        _id:"sfnsdjkfsdnfkjsbnd",
+        content:"",
+        _id:"sfnsdjkfsdnfkdddjsbnd",
         sender:{
             _id:"sdfsdfsdf",
             name:"Aneesh",

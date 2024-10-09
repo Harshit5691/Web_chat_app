@@ -1,0 +1,60 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(200,200,200,0.5),rgba(120,110,220,0.5));
+}
+
+.login-paper {
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.upload-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: white;
+    background-color: rgba(0,0,0,0);
+    &:hover {
+        background-color: rgba(0,0,0,0.4);
+    }
+}
+
+.error-text {
+    margin: 1rem 0;
+    color: red;
+    font-size: 0.9rem;
+}
+
+
+/* Example styles for login button */
+.login-button, .sign-up-button {
+    background-color: #0056b3; /* Dark blue */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover, .sign-up-button:hover {
+    background-color: #007BFF; /* Lighter blue for hover effect */
+}
+
+
+.login-background {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(39deg, rgba(2, 0, 36, 1) 0%, rgba(59, 108, 143, 1) 48%, rgba(11, 219, 217, 1) 100%);
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
