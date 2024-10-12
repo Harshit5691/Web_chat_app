@@ -71,3 +71,46 @@ export const sampleMessages = [
         createdAt:"2024-10-08T10:41:30.630Z",
     }
 ];
+export const dashboardData = {
+    users:[
+        {
+            name:"John Doe",
+            avatar:"https://www.w3schools.com/howto/img_avatar.png",
+            _id:"1",
+            username:"johndoe",
+            friends:10,
+            groups:5,
+        },
+        {
+            name:"Tanmay Saxena",
+            avatar:"https://www.w3schools.com/howto/img_avatar.png",
+            _id:"2",
+            username:"tanmaysaxena",
+            friends:100,
+            groups:50,
+        }
+    ],
+    chats:[{
+        name:"Aukat Group",
+        avatar:["https://www.w3schools.com/howto/img_avatar.png"],
+        _id:"1",
+        totalMembers:2,
+        members:[{_id:"1",avatar:"https://www.w3schools.com/howto/img_avatar.png"}, {_id:"2",avatar:"https://www.w3schools.com/howto/img_avatar.png"}],
+        totalMessages:100,
+        creator:{
+            name:"John Doe",
+            avatar:"https://www.w3schools.com/howto/img_avatar.png",
+        }
+    },{
+        name:"Taxsena",
+        avatar:["https://www.w3schools.com/howto/img_avatar.png"],
+        _id:"2",
+        totalMembers:2,
+        members:[{_id:"1",avatar:"https://www.w3schools.com/howto/img_avatar.png"}, {_id:"2",avatar:"https://www.w3schools.com/howto/img_avatar.png"}],
+        totalMessages:100,
+        creator:{
+            name:"Tanmay Saxena",
+            avatar:"https://www.w3schools.com/howto/img_avatar.png",
+        }
+    }],
+};
