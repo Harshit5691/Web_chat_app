@@ -113,4 +113,32 @@ export const dashboardData = {
             avatar:"https://www.w3schools.com/howto/img_avatar.png",
         }
     }],
+    messages:[{
+        attachments:[],
+        content:"Hey from Mughal Ketan Goud",
+        _id:"sfnsdjkfsdnfkjsbnd",
+        sender:{
+            avatar:"https://www.w3schools.com/howto/img_avatar.png",
+            name:"Ketan Goud",
+        },
+        chat: "chatId",
+        groupChat: false,
+        createdAt:"2024-10-08T10:41:30.630Z",
+    },{
+        attachments:[
+            {
+                public_id:"asdsad 2",
+                url:"https://www.w3schools.com/howto/img_avatar.png",
+            }
+        ],
+        content:"",
+        _id:"sfnsdjkfsdnfkdddjsbnd",
+        sender:{
+            avatar:"https://www.w3schools.com/howto/img_avatar.png",
+            name:"Aneesh",
+        },
+        chat: "chatId",
+        groupChat: false,
+        createdAt:"2024-10-08T10:41:30.630Z",
+    }]
 };
