@@ -1,4 +1,4 @@
-import {User} from '../models/User.js';
+import {User} from '../models/user.js';
 import {Chat} from '../models/chat.js';
 import {Message} from '../models/messages.js';
 import {faker, simpleFaker} from '@faker-js/faker'
