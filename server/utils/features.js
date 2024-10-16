@@ -15,12 +15,18 @@ const connectDB = async (uri) => {
     });
 };
 const sendToken = (res, user, code, message) => {
-    const token = jwt.sign({_id: user._id},'process.env.JWT_SECRET');
+    const token = jwt.sign({_id: user._id},process.env.JWT_SECRET);
     
     return res.status(code).cookie("chat-app-token",token,cookieOptions).json({
         success: true,
         message,
     });
 };
+const emitEvent = (req,event,users,data)=> {
+    console.log("Emitting event",event);
+};
 
-export {connectDB,sendToken};
+const deleteFilesFromCloudinary = async(public_ids) => {
+
+};
+export {connectDB,sendToken,cookieOptions, emitEvent, deleteFilesFromCloudinary};
