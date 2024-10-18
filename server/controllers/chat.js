@@ -8,8 +8,6 @@ import { deleteFilesFromCloudinary, emitEvent } from '../utils/features.js';
 import { ErrorHandler } from '../utils/utility.js';
 const newGroupChat = TryCatch(async(req,res,next) => {
     const {name,members} = req.body;
-    if(members.length < 2)
-        return next(new ErrorHandler("Group Chat must have at least 2 members",  400));
     const allMembers = [...members,req.user];
     await Chat.create({
         name,
@@ -68,8 +66,6 @@ const getMyGroups = TryCatch(async(req,res,next) => {
 
 const addMembers = TryCatch(async(req,res,next) => {
     const {chatId, members} = req.body;
-    if(!members || members.length < 1)
-        return next(new ErrorHandler("Members required", 400));
     const chat = await Chat.findById(chatId);
     if(!chat)
         return next(new ErrorHandler("Chat not found", 404));
@@ -144,12 +140,14 @@ const leaveGroup = TryCatch(async(req,res,next) => {
 
 const sendAttachments = TryCatch(async(req,res,next) => {
     const {chatId} = req.body;
-    const [chat, me] = await Promise.all([Chat.findById(chatId),User.findById(req.user,"name")]);
-    if(!chat)
-        return next(new ErrorHandler("Chat not found", 404));
     const files = req.files || [];
     if(files.length < 1)
         return next(new ErrorHandler("Please provide attachments", 400));
+    if(files.length > 5)
+        return next(new ErrorHandler("You can upload at most 5 files", 400));
+    const [chat, me] = await Promise.all([Chat.findById(chatId),User.findById(req.user,"name")]);
+    if(!chat)
+        return next(new ErrorHandler("Chat not found", 404));
     const attachments = [];
     const messageForDB = {
         content:"",
