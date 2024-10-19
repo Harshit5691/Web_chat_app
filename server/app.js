@@ -12,6 +12,8 @@ import adminRoute from './routes/admin.js';
 import chatRoute from './routes/chat.js';
 import userRoute from './routes/user.js';
 import { connectDB } from './utils/features.js';
+import cors from 'cors';
+import {v2 as cloudinary} from 'cloudinary'
 dotenv.config({
     path: './.env'
 });
@@ -21,14 +23,25 @@ const envMode = process.env.NODE_ENV.trim() || "PRODUCTION";
 const adminSecretKey = process.env.ADMIN_SECRET_KEY || "6pp";
 const userSocketIDs = new Map();
 connectDB(mongoURI);
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 const app = express();
 const server = createServer(app);
 const io = new Server(server,{});
 app.use(express.json());
 app.use(cookieParser());
-app.use('/user', userRoute);
-app.use('/chat', chatRoute);
-app.use('/admin', adminRoute);
+app.use(
+    cors({
+        origin: ["http://localhost:5173","http://localhost:4173", process.env.CLIENT_URL],
+        credentials: true,
+    })
+);
+app.use('/api/v1/user', userRoute);
+app.use('/api/v1/chat', chatRoute);
+app.use('/api/v1/admin', adminRoute);
 app.get('/', (req, res) => {
     res.send('Hello World');
 });

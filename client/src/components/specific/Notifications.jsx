@@ -1,17 +1,41 @@
-import { Dialog, DialogTitle, ListItem, Stack, Avatar, Typography,Button } from '@mui/material'
+import { Dialog, DialogTitle, ListItem, Stack, Avatar, Typography,Button, Skeleton } from '@mui/material'
 import React, { memo } from 'react'
 import { sampleNotifications } from '../../constants/sampleData'
+import { useAcceptFriendRequestMutation, useGetNotificationsQuery } from '../../redux/api/api';
+import { useErrors } from '../../hooks/hook';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsNotification } from '../../redux/reducer/misc';
+import toast from 'react-hot-toast';
 
 const Notifications = () => {
-  const friendRequestHandler = ({_id,accept}) => {
-
+  const { isNotification } = useSelector((state) => state.misc);
+  const dispatch = useDispatch();
+  const {isLoading,data,error,isError} = useGetNotificationsQuery();
+  const [acceptRequest] = useAcceptFriendRequestMutation();
+  const friendRequestHandler = async({_id,accept}) => {
+    dispatch(setIsNotification(false));
+    try {
+      const res = await acceptRequest({requestId: _id,accept});
+      console.log(res);
+      if(res.data?.success){
+        console.log("Use socket here");
+        toast.success(res.data.message);
+      } else toast.error(res.data?.error || "Something Went Wrong");
+    } catch (error) {
+      toast.error("Something Went Wrong");
+      console.log(error);
+    }
   };
-  return (<Dialog open>
+  const closeHandler = () => dispatch(setIsNotification(false));
+  useErrors([{error,isError}]);
+  return (<Dialog open={isNotification} onClose={closeHandler}>
       <Stack p={{ xs:"1rem", sm:"2rem"}} maxWidth={"25rem"}>
         <DialogTitle>Notifications</DialogTitle>
         {
-          sampleNotifications.length > 0 ? (
-          sampleNotifications.map(({sender,_id}) => (
+          isLoading ? <Skeleton/>:<>
+            {
+          data?.allRequests.length > 0 ? (
+            data?.allRequests?.map(({sender,_id}) => (
           <NotificationItem 
           sender={sender} 
           _id={_id} 
@@ -22,6 +46,8 @@ const Notifications = () => {
         ) : (
         <Typography textAllign={"center"}>No Notification</Typography> 
       )}
+          </>
+        }
       </Stack>
   </Dialog>);
 };
