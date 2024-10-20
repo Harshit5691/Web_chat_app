@@ -1,10 +1,13 @@
-import multer from 'multer'
+import multer from "multer";
 
-const multerUploads = multer({
-    limits: {
-        fileSize: 1024 * 1024 * 5,
-    },
+const multerUpload = multer({
+  limits: {
+    fileSize: 1024 * 1024 * 5,
+  },
 });
-const singleAvatar = multerUploads.single('avatar');
-const attachmentsMulter = multerUploads.array('files', 5);
-export {singleAvatar,attachmentsMulter};
+
+const singleAvatar = multerUpload.single("avatar");
+
+const attachmentsMulter = multerUpload.array("files", 5);
+
+export { singleAvatar, attachmentsMulter };
