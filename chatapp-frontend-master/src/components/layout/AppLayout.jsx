@@ -51,6 +51,26 @@ const AppLayout = () => (WrappedComponent) => {
       getOrSaveFromStorage({ key: NEW_MESSAGE_ALERT, value: newMessagesAlert });
     }, [newMessagesAlert]);
 
+    // useEffect(() => {
+    //   // Inject Botpress Webchat script dynamically
+    //   const script1 = document.createElement("script");
+    //   script1.src = "https://cdn.botpress.cloud/webchat/v2.2/inject.js";
+    //   script1.async = true;
+    //   document.body.appendChild(script1);
+
+    //   const script2 = document.createElement("script");
+    //   script2.src =
+    //     "https://files.bpcontent.cloud/2024/10/08/10/20241008100850-1VZX0JVI.js";
+    //   script2.async = true;
+    //   document.body.appendChild(script2);
+
+    //   // Cleanup on unmount
+    //   return () => {
+    //     document.body.removeChild(script1);
+    //     document.body.removeChild(script2);
+    //   };
+    // }, []);
+
     const handleDeleteChat = (e, chatId, groupChat) => {
       dispatch(setIsDeleteMenu(true));
       dispatch(setSelectedDeleteChat({ chatId, groupChat }));
@@ -114,7 +134,16 @@ const AppLayout = () => (WrappedComponent) => {
           </Drawer>
         )}
 
-        <Grid container height={"calc(100vh - 4rem)"}>
+        <Grid
+          container
+          height={"calc(100vh - 4rem)"}
+          sx={{
+            background: 'rgb(72,33,116)',
+background: '-moz-linear-gradient(143deg, rgba(72,33,116,1) 30%, rgba(24,65,126,1) 93%)',
+background: '-webkit-linear-gradient(143deg, rgba(72,33,116,1) 30%, rgba(24,65,126,1) 93%)',
+background: 'linear-gradient(143deg, rgba(72,33,116,1) 30%, rgba(24,65,126,1) 93%)',
+filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr="#482174",endColorstr="#18417e",GradientType=1)'}}
+        >
           <Grid
             item
             sm={4}

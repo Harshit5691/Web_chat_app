@@ -4,6 +4,9 @@ import { transformImage } from "../../lib/features";
 
 // Todo Transform
 const AvatarCard = ({ avatar = [], max = 4 }) => {
+  // Ensure avatar is an array
+  const avatars = Array.isArray(avatar) ? avatar : [];
+
   return (
     <Stack direction={"row"} spacing={0.5}>
       <AvatarGroup
@@ -13,9 +16,9 @@ const AvatarCard = ({ avatar = [], max = 4 }) => {
         }}
       >
         <Box width={"5rem"} height={"3rem"}>
-          {avatar.map((i, index) => (
+          {avatars.map((i, index) => (
             <Avatar
-              key={Math.random() * 100}
+              key={i.id || Math.random()} // Use a unique id if available
               src={transformImage(i)}
               alt={`Avatar ${index}`}
               sx={{

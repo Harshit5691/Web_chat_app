@@ -31,18 +31,20 @@ const ChatItem = ({
           display: "flex",
           gap: "1rem",
           alignItems: "center",
-          backgroundColor: sameSender ? "black" : "unset",
-          color: sameSender ? "white" : "unset",
+          backgroundColor: sameSender ? "rgba(255, 255, 255, 0.3)" : "unset", // Change this color to a slightly darker shade
+          color: "white",
           position: "relative",
           padding: "1rem",
+          border: "1px solid rgba(255, 255, 255, 0.2)", // Add a border
+          borderRadius: "8px", // Adjust border radius for rounded corners
         }}
       >
         <AvatarCard avatar={avatar} />
 
         <Stack>
-          <Typography>{name}</Typography>
+          <Typography sx={{ color: "white" }}>{name}</Typography> {/* Ensure name text is white */}
           {newMessageAlert && (
-            <Typography>{newMessageAlert.count} New Message</Typography>
+            <Typography sx={{ color: "white" }}>{newMessageAlert.count} New Message</Typography>
           )}
         </Stack>
 

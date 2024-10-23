@@ -266,7 +266,12 @@ const Groups = () => {
   return myGroups.isLoading ? (
     <LayoutLoader />
   ) : (
-    <Grid container height={"100vh"}>
+    <Grid container height={"100vh"}
+    
+     
+     
+     
+     >
       <Grid
         item
         sx={{
@@ -385,9 +390,11 @@ const GroupsList = ({ w = "100%", myGroups = [], chatId }) => (
   <Stack
     width={w}
     sx={{
-      backgroundImage: bgGradient,
       height: "100vh",
       overflow: "auto",
+      background: "linear-gradient(143deg, rgba(72,33,116,1) 30%, rgba(24,65,126,1) 93%)",
+      // You can remove the other background properties as they are redundant
+      filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#482174',endColorstr='#18417e',GradientType=1)"
     }}
   >
     {myGroups.length > 0 ? (
@@ -395,12 +402,17 @@ const GroupsList = ({ w = "100%", myGroups = [], chatId }) => (
         <GroupListItem group={group} chatId={chatId} key={group._id} />
       ))
     ) : (
-      <Typography textAlign={"center"} padding="1rem">
+      <Typography 
+        textAlign={"center"} 
+        padding="1rem" 
+        sx={{ color: 'antiquewhite' }} // Corrected from Color to color
+      >
         No groups
       </Typography>
     )}
   </Stack>
 );
+
 
 const GroupListItem = memo(({ group, chatId }) => {
   const { name, avatar, _id } = group;
@@ -414,7 +426,7 @@ const GroupListItem = memo(({ group, chatId }) => {
     >
       <Stack direction={"row"} spacing={"1rem"} alignItems={"center"}>
         <AvatarCard avatar={avatar} />
-        <Typography>{name}</Typography>
+        <Typography sx={{ color: 'antiquewhite' }}>{name}</Typography> {/* Set text color to antiquewhite */}
       </Stack>
     </Link>
   );

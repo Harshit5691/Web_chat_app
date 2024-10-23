@@ -78,7 +78,7 @@ const Header = () => {
         <AppBar
           position="static"
           sx={{
-            bgcolor: orange,
+            background: "#482174"
           }}
         >
           <Toolbar>
@@ -86,9 +86,11 @@ const Header = () => {
               variant="h6"
               sx={{
                 display: { xs: "none", sm: "block" },
+                fontFamily: "Great Vibes",
+                fontSize: "40px",
               }}
             >
-              Chattu
+              LinkUp
             </Typography>
 
             <Box

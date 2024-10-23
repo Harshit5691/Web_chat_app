@@ -1,0 +1,145 @@
+/* Login.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background: rgb(46,22,94);
+background: -moz-linear-gradient(31deg, rgba(46,22,94,1) 11%, rgba(29,178,235,1) 15%, rgba(31,170,227,1) 18%, rgba(61,23,88,1) 53%, rgba(48,13,110,1) 53%, rgba(33,22,156,1) 84%, rgba(119,46,203,1) 95%);
+background: -webkit-linear-gradient(31deg, rgba(46,22,94,1) 11%, rgba(29,178,235,1) 15%, rgba(31,170,227,1) 18%, rgba(61,23,88,1) 53%, rgba(48,13,110,1) 53%, rgba(33,22,156,1) 84%, rgba(119,46,203,1) 95%);
+background: linear-gradient(31deg, rgba(46,22,94,1) 11%, rgba(29,178,235,1) 15%, rgba(31,170,227,1) 18%, rgba(61,23,88,1) 53%, rgba(48,13,110,1) 53%, rgba(33,22,156,1) 84%, rgba(119,46,203,1) 95%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e165e",endColorstr="#772ecb",GradientType=1);
+
+
+}
+  
+/* Container for the layout */
+.container {
+    display: flex; /* Change to flex to arrange children horizontally */
+    height: 100vh; /* Full height */
+}
+
+/* Left side with title and slogan */
+.left-side {
+    flex: 1; /* Takes up remaining space */
+    display: flex;
+    flex-direction: column; /* Stack title and slogan vertically */
+    justify-content: center; /* Center them vertically */
+    align-items: center; /* Align items to the left */
+    padding: 20px; /* Add padding as needed */
+}
+
+/* Right side for the login form */
+.right-side {
+    flex: 1; /* Takes up remaining space */
+    display: flex;
+    justify-content: center; /* Center the login form horizontally */
+    align-items: center; /* Center the login form vertically */
+}
+
+/* Title styling */
+.linkup-title {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    color: antiquewhite;
+    font-size: 60px;
+    font-family: 'Great Vibes';
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+/* Slogan styling */
+.slogan {
+    opacity: 0;
+    animation: fadeIn 2s 1s forwards; /* Delayed fade-in for slogan */
+    color: antiquewhite;
+    font-size: 24px;
+    font-family: 'Allerta Stencil';
+    margin-top: 0px;
+}
+
+/* Paper styling for the login form */
+.paper {
+    padding: 2rem;
+    background-color: white;
+    border-radius: 50px; 
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 2s 2s forwards; /* Delayed fade-in */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional styles for title, text field, buttons, etc. */
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6a11cb;
+}
+
+.text-field {
+    margin-top: 1rem;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.button {
+    margin-top: 1rem;
+    background-color: #6a11cb;
+    color: white;
+}
+
+.button:hover {
+    background-color: #5a0dab;
+}
+
+.toggle-button {
+    color: #6a11cb;
+}
+
+.avatar {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem auto;
+    border: 3px solid #6a11cb;
+    object-fit: contain;
+}
+
+.icon-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9rem;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 1rem;
+}
